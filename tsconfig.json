@@ -1,0 +1,22 @@
+{
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "strict": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"]
+    }
+  },
+  "include": [
+    "index.d.ts",
+    "app.d.ts",
+    "declarations.d.ts",
+    "**/*.ts",
+    "**/*.js",
+    "**/*.tsx",
+    "**/*.jsx",
+    "./types",
+    ".eslintrc.js",
+    ".prettierrc.js",
+  ]
+}
