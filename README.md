@@ -5,16 +5,20 @@ In general, follow https://docs.expo.dev/, below are some quick references.
 
 ## Connection with Expo
 
-- You have to install eas-cli to connect and build project
+- You have to install eas-cli to connect and build project.
 
 ```bash
 npm install --global eas-cli
 ```
 
-- Afterwards initiate
+```bash
+eas login
+```
+
+- At this point you have to have created expo project. Afterwards add the projectId into `extras.projectId` inside `app.config.js` file.
 
 ```bash
-eas init --id {ID}
+eas build:configure
 ```
 
 ## Develop
@@ -81,4 +85,9 @@ eas submit -p ios
 
 ## Environment variables
 
-Public ones available in the final frontend package go to `.env` prefixed with `EXPO_PUBLIC_`. Access them using `environment.ts`. Secrets go to Expo secrets (and are afterwards available in app.config.js - and probably elsewhere - as environment variables) - see Expo secrets docs.
+- Public ones available in the final frontend package go to `.env.local` prefixed with `EXPO_PUBLIC_`. Access them using `environment.ts`.
+- For builds don't use `.env`, `.env.production` and similar files, but go to `eas.json` and add environment variables to build objects, so eas build can access them. When running localy the `.env.local` is used primarily.
+
+### Secrets
+
+- Secrets go to Expo secrets (and are afterwards available in app.config.js - and elsewhere - as environment variables) - see Expo secrets docs.

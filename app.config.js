@@ -2,7 +2,7 @@ module.exports = {
   expo: {
     name: 'expo-template',
     slug: 'expo-template',
-    scheme: 'paasmpa',
+    scheme: 'expo-template',
     version: '1.0.0',
     orientation: 'portrait',
     icon: './assets/icon.png',
@@ -29,5 +29,11 @@ module.exports = {
       tsconfigPaths: true,
     },
     plugins: ['expo-router'],
+    extra: {
+      eas: {
+        projectId: '', // Add your EAS project ID here
+      },
+    },
+    owner: 'bratislava',
   },
 }

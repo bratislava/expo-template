@@ -1,0 +1,54 @@
+{
+  "cli": {
+    "version": ">= 7.2.0",
+    "appVersionSource": "remote"
+  },
+  "build": {
+    "development-simulator": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "ios": {
+        "simulator": true
+      },
+      "env": {
+        // add your dev env here
+      }
+    },
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "env": {
+        // add your dev env here
+      }
+    },
+    "preview": {
+      "distribution": "internal"
+    },
+    "staging": {
+      "autoIncrement": true,
+      "env": {
+        // add your staging env here
+      }
+    },
+    "production": {
+      "autoIncrement": true,
+      "env": {
+        // add your production env here
+      }
+    }
+  },
+  "submit": {
+    "staging": {
+      "android": {
+        "releaseStatus": "draft",
+        "track": "internal"
+      }
+    },
+    "production": {
+      "android": {
+        "releaseStatus": "draft",
+        "track": "internal"
+      }
+    }
+  }
+}
