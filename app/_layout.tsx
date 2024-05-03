@@ -12,6 +12,7 @@ const RootLayout = () => {
     <SafeAreaView>
       <View className="h-full w-full items-center justify-center">
         <Text>{t('root.heading')}</Text>
+        {/* eslint-disable-next-line react/style-prop-object */}
         <StatusBar style="auto" />
       </View>
     </SafeAreaView>
