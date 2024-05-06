@@ -1,13 +1,17 @@
 import '../global.css'
+import '../i18n.config.js'
 
 import { StatusBar } from 'expo-status-bar'
+import { useTranslation } from 'react-i18next'
 import { SafeAreaView, Text, View } from 'react-native'
 
 const RootLayout = () => {
+  const { t } = useTranslation()
+
   return (
     <SafeAreaView>
       <View className="h-full w-full items-center justify-center">
-        <Text>Open up App.js to start working on your app!</Text>
+        <Text>{t('root.heading')}</Text>
         {/* eslint-disable-next-line react/style-prop-object */}
         <StatusBar style="auto" />
       </View>
