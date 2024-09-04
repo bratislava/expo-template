@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ['auto'],
+  extends: ['auto', 'plugin:i18next/recommended'],
   ignorePatterns: [
     '*.config.*',
     '.eslintrc.js',
@@ -27,9 +27,10 @@ module.exports = {
     /** To remove optional parameter warning e.g. { page?: number } */
     'react/require-default-props': 'off',
     /** Include Typography as allowed text component */
-    'react-native/no-raw-text': ['error', { skip: ['Typography', 'Button', 'FloatingButton'] }],
+    'react-native/no-raw-text': ['error', { skip: ['Typography', 'Button'] }],
     'eslint-comments/disable-enable-pair': ['error', { allowWholeFile: true }],
     'switch-case/newline-between-switch-case': 'off',
+    // Solve warning "Promise-returning function provided to attribute where a void return was expected."
     '@typescript-eslint/no-misused-promises': [
       'warn',
       {
@@ -40,16 +41,20 @@ module.exports = {
     ],
     /** if comparing values in cx function or creating translations, it"s overkill to create variables for that */
     'sonarjs/no-duplicate-string': 'warn',
-    /** Solves error with imports from files with no extension */
+    // quite annoying as it conflicts with VS Code"s auto import
+    'lodash/import-scope': 'off',
+    /* solves error with imports from files with no extension */
     'import/extensions': 'off',
     'react/react-in-jsx-scope': 'off',
-    /** too many false positives  */
+    // cumbersome when prototyping
+    'react-native/no-color-literals': 'off',
+    // too many false positives
     'pii/no-phone-number': 'off',
-    /** Not relevant to force separation of styles, when we use nativewind */
+    // Not relevant to force separation of styles, when we use nativewind
     'react-native/no-inline-styles': 'off',
+    'padding-line-between-statements': ['warn', { blankLine: 'always', prev: '*', next: 'return' }],
     '@typescript-eslint/no-floating-promises': 'warn',
     'const-case/uppercase': 'off',
-    'sonarjs/cognitive-complexity': 'warn',
-    '@typescript-eslint/ban-ts-comment': 'warn',
+    'i18next/no-literal-string': ['error', { 'should-validate-template': true }],
   },
 }
