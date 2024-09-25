@@ -6,6 +6,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      EXPO_UPDATE_MESSAGE: '${{ github.event.ref }} ${{ github.event.head_commit.message }}'
     steps:
       - name: 🚂 Setup repo
         uses: actions/checkout@v4
@@ -38,9 +40,9 @@ jobs:
         if: contains(github.event.ref, 'prod') && contains(github.event.ref, 'ota')
         run: |
           if [[ ${{ github.event.ref }} == *"test"* ]]; then
-            eas update --message "${{ github.event.ref }} ${{ github.event.head_commit.message }}" --branch prod-test --platform all --non-interactive
+            eas update --message "$EXPO_UPDATE_MESSAGE" --branch prod-test --platform all --non-interactive
           else
-            eas update --message "${{ github.event.ref }} ${{ github.event.head_commit.message }}" --branch prod --platform all --non-interactive
+            eas update --message "$EXPO_UPDATE_MESSAGE" --branch prod --platform all --non-interactive
           fi
 
       - name: 🚀 Build staging
